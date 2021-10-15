@@ -12,5 +12,8 @@ const ACT_BOOKS = async ({ commit }, page = 1) => {
 const ACT_BOOK = async ({ commit }, idx) => {
   console.log(commit, idx);
 };
+const ACT_LOADING = async ({ commit }, toggle) => {
+  commit("MUT_LOADING", toggle);
+};
 
-export default { ACT_BOOKS, ACT_BOOK };
+export default { ACT_BOOKS, ACT_BOOK, ACT_LOADING };

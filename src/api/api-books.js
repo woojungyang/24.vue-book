@@ -1,9 +1,9 @@
 import axios from "axios";
-import { API_KEY, URL_BOOKS } from "../modules/common";
+const { VUE_APP_API_KEY, VUE_APP_URL_BOOKS } = process.env;
 
 const apiBooks = (page) => {
-  return axios.get(URL_BOOKS, {
-    params: { page, apikey: API_KEY },
+  return axios.get(VUE_APP_URL_BOOKS + "/" + page, {
+    params: { apikey: VUE_APP_API_KEY },
     withCredentials: true,
   });
 };
