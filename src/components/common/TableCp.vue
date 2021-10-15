@@ -1,25 +1,23 @@
 <template>
   <div class="tbl-wrap">
     <!-- table -->
-    <transition mode="out-in">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>저자</th>
-            <th>요약설명</th>
-            <th>표지</th>
-            <th>등록일</th>
-            <th>상태</th>
-          </tr>
-        </thead>
-        <tbody>
-          <TrCp v-for="book in GET_BOOKS.books" :key="book.idx" :book="book" />
-        </tbody>
-      </table>
-      <PagerCp :pager="GET_BOOKS.pager" />
-    </transition>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>저자</th>
+          <th>요약설명</th>
+          <th>표지</th>
+          <th>등록일</th>
+          <th>상태</th>
+        </tr>
+      </thead>
+      <tbody>
+        <TrCp v-for="book in GET_BOOKS.books" :key="book.idx" :book="book" />
+      </tbody>
+    </table>
+    <PagerCp :pager="GET_BOOKS.pager" />
   </div>
 </template>
 
@@ -35,12 +33,12 @@ export default {
   computed: {
     ...mapGetters(["GET_BOOKS"]),
   },
-  watch: {
-    GET_BOOKS: function (v) {
-      if (v) this.$store.dispatch("ACT_LOADING", false);
-    },
+  beforeUpdate() {
+    this.$store.dispatch("ACT_LOADING", true);
   },
-  beforeUpdate() {},
+  updated() {
+    this.$store.dispatch("ACT_LOADING", false);
+  },
 };
 </script>
 

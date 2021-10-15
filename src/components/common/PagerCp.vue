@@ -1,46 +1,33 @@
 <template>
-  <div class="pager-wrap">
-    <router-link
-      :
-      to="`/list/${firstPage}`"
-      class="pager fa fa-step-backward"
-    ></router-link>
-    <router-link
-      :
-      to="`/list/${prevPager}`"
-      class="pager fa fa-backward"
-    ></router-link>
-    <router-link
-      :
-      to="`/list/${prevPage}`"
-      class="pager fa fa-caret-left"
-    ></router-link>
-    <router-link
-      :
-      to="v-for"
-      ="v in pageArr"
-      :href="`/list/${v}`"
+  <ul class="pager-wrap">
+    <li @click="changePage" :title="firstPage" class="pager">
+      <i class="fa fa-step-backward"></i>
+    </li>
+    <li @click="changePage" :title="prevPager" class="pager">
+      <i class="fa fa-backward"></i>
+    </li>
+    <li @click="changePage" :title="prevPage" class="pager">
+      <i class="fa fa-caret-left"></i>
+    </li>
+    <li
+      v-for="v in pageArr"
+      :title="v"
       :key="v"
       :class="`pager ${page === v ? 'active' : ''}`"
-      >{{ v }}</router-link
+      @click="changePage"
     >
-    <router-link : to="`/list/1`" class="pager">2</router-link>
-    <router-link
-      :
-      to="`/list/${nextPage}`"
-      class="pager fa fa-caret-right"
-    ></router-link>
-    <router-link
-      :
-      to="`/list/${nextPager}`"
-      class="pager fa fa-forward"
-    ></router-link>
-    <router-link
-      :
-      to="`/list/${totalPage}`"
-      class="pager fa fa-step-forward"
-    ></router-link>
-  </div>
+      {{ v }}
+    </li>
+    <li @click="changePage" :title="nextPage" class="pager">
+      <i class="fa fa-caret-right"></i>
+    </li>
+    <li @click="changePage" :title="nextPager" class="pager">
+      <i class="fa fa-forward"></i>
+    </li>
+    <li @click="changePage" :title="lastPage" class="pager">
+      <i class="fa fa-step-forward"></i>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -62,17 +49,22 @@ export default {
   watch: {
     pager: function (v) {
       if (v) {
-        (this.prevPager = v.prevPager),
-          (this.prevPage = v.prevPage),
-          (this.nextPager = v.nextPager),
-          (this.nextPage = v.nextPage),
-          (this.lastPage = v.lastPage);
-        this.pageArr = [];
+        this.prevPager = v.prevPager;
+        this.prevPage = v.prevPage;
+        this.nextPager = v.nextPager;
+        this.nextPage = v.nextPage;
+        this.lastPage = v.totalPage;
         this.page = v.page;
+        this.pageArr = [];
         for (let i = v.startPage; i <= v.endPage; i++) {
           this.pageArr.push(i);
         }
       }
+    },
+  },
+  methods: {
+    changePage(e) {
+      this.$store.dispatch("ACT_BOOKS", e.target.title);
     },
   },
 };
