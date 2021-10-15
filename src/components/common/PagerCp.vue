@@ -76,7 +76,7 @@ export default {
   @include flex($h: center);
   .pager {
     padding: 0.625em 0.875em;
-    border: 1px solid $success-color;
+    border: 1px solid $accent-color;
     margin-right: -1px;
     color: $accent-color;
     &.active {

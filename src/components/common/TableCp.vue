@@ -47,8 +47,8 @@ export default {
   .table {
     text-align: center;
     th {
-      background-color: $accent-color;
-      color: $light-color;
+      background-color: $success-color;
+      color: $grey-color;
       padding: 0.75em 0;
     }
   }

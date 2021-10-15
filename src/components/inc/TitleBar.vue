@@ -35,11 +35,16 @@ export default {
 <style lang="scss" scoped>
 .title-bar {
   background-color: $grey-color;
-  color: $light-color;
+  color: $white-color;
   padding: 2em 0;
   .jumbotron {
     width: 90%;
     margin: auto;
+    .btn-primary {
+    color: $dark-color;
+    background-color: $accent-color;
+    border-color: $accent-color;
+}
     .display-3 {
       font-size: 2.5rem;
       margin-bottom: 0.325em;

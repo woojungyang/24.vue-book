@@ -22,7 +22,7 @@ export default {
   @include rel;
   @include flex($h: space-between);
   background-color: $dark-color;
-  color: $light-color;
+  color: $white-color;
   font-size: 1.25em;
   .navi-pc {
     @include MD {
