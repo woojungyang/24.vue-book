@@ -1,30 +1,30 @@
 <template>
   <ul class="pager-wrap">
-    <li @click="changePage" :title="firstPage" class="pager">
+    <li @click="changePage" :data-page="firstPage" class="pager">
       <i class="fa fa-step-backward"></i>
     </li>
-    <li @click="changePage" :title="prevPager" class="pager">
+    <li @click="changePage" :data-page="prevPager" class="pager">
       <i class="fa fa-backward"></i>
     </li>
-    <li @click="changePage" :title="prevPage" class="pager">
+    <li @click="changePage" :data-page="prevPage" class="pager">
       <i class="fa fa-caret-left"></i>
     </li>
     <li
       v-for="v in pageArr"
-      :title="v"
+      :data-page="v"
       :key="v"
       :class="`pager ${page === v ? 'active' : ''}`"
       @click="changePage"
     >
       {{ v }}
     </li>
-    <li @click="changePage" :title="nextPage" class="pager">
+    <li @click="changePage" :data-page="nextPage" class="pager">
       <i class="fa fa-caret-right"></i>
     </li>
-    <li @click="changePage" :title="nextPager" class="pager">
+    <li @click="changePage" :data-page="nextPager" class="pager">
       <i class="fa fa-forward"></i>
     </li>
-    <li @click="changePage" :title="lastPage" class="pager">
+    <li @click="changePage" :data-page="lastPage" class="pager">
       <i class="fa fa-step-forward"></i>
     </li>
   </ul>
@@ -40,8 +40,8 @@ export default {
       prevPage: 1,
       nextPager: 1,
       nextPage: 1,
-      lastPage: 1,
       firstPage: 1,
+      lastPage: 1,
       pageArr: [],
       page: 1,
     };
@@ -64,7 +64,12 @@ export default {
   },
   methods: {
     changePage(e) {
-      this.$store.dispatch("ACT_BOOKS", e.target.title);
+      const page = e.currentTarget.dataset["page"];
+      this.$store.dispatch("ACT_PAGE", page);
+      if (this.page != page) {
+        this.$store.dispatch("ACT_LOADING", true);
+        this.$store.dispatch("ACT_BOOKS", { page });
+      }
     },
   },
 };
@@ -75,8 +80,9 @@ export default {
   margin: 2em auto;
   @include flex($h: center);
   .pager {
+    cursor: pointer;
     padding: 0.625em 0.875em;
-    border: 1px solid $accent-color;
+    border: 1px solid $success-color;
     margin-right: -1px;
     color: $accent-color;
     &.active {

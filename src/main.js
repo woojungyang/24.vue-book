@@ -7,8 +7,10 @@ import { BootstrapVue } from "bootstrap-vue";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import { ObserveVisibility } from "vue-observe-visibility";
 
 Vue.use(BootstrapVue);
+Vue.directive("observe", ObserveVisibility);
 
 Vue.config.productionTip = false;
 

@@ -1,7 +1,7 @@
 <template>
   <div class="tbl-wrap">
     <!-- table -->
-    <table class="table">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>번호</th>
@@ -14,31 +14,19 @@
         </tr>
       </thead>
       <tbody>
-        <TrCp v-for="book in GET_BOOKS.books" :key="book.idx" :book="book" />
+        <TrCp v-for="book in books" :key="book.idx" :book="book" />
       </tbody>
     </table>
-    <PagerCp :pager="GET_BOOKS.pager" />
   </div>
 </template>
 
 <script>
 import TrCp from "@/components/common/TrCp.vue";
-import PagerCp from "@/components/common/PagerCp.vue";
-
-import { mapGetters } from "vuex";
 
 export default {
   name: "TableCp",
-  components: { TrCp, PagerCp },
-  computed: {
-    ...mapGetters(["GET_BOOKS"]),
-  },
-  beforeUpdate() {
-    this.$store.dispatch("ACT_LOADING", true);
-  },
-  updated() {
-    this.$store.dispatch("ACT_LOADING", false);
-  },
+  components: { TrCp },
+  props: ["books"],
 };
 </script>
 
@@ -47,9 +35,25 @@ export default {
   .table {
     text-align: center;
     th {
-      background-color: $success-color;
-      color: $grey-color;
+      background-color: $accent-color;
+      color: $light-color;
       padding: 0.75em 0;
+      @include MD {
+        &:nth-child(4),
+        &:nth-child(5) {
+          display: none;
+        }
+      }
+      @include SM {
+        &:nth-child(6) {
+          display: none;
+        }
+      }
+      @include XS {
+        &:nth-child(3) {
+          display: none;
+        }
+      }
     }
   }
 }

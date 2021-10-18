@@ -1,19 +1,36 @@
-import apiBooks from "../api/api-books";
+import { apiBook, apiBooks } from "@/api";
 
-const ACT_BOOKS = async ({ commit }, page = 1) => {
+const ACT_BOOKS = async ({ commit }, options) => {
   try {
-    const { data } = await apiBooks(page);
+    const { page = 1, listCnt = 5, pagerCnt = 3 } = options;
+    const { data } = await apiBooks(page, { listCnt, pagerCnt });
     commit("MUT_BOOKS", data);
   } catch (err) {
+    console.log(err);
     commit("MUT_BOOKS", null);
   }
 };
 
 const ACT_BOOK = async ({ commit }, idx) => {
-  console.log(commit, idx);
+  try {
+    const { data } = await apiBook(idx);
+    commit("MUT_BOOK", data);
+  } catch (err) {
+    console.log(err);
+    commit("MUT_BOOKS", null);
+  }
 };
+
 const ACT_LOADING = async ({ commit }, toggle) => {
   commit("MUT_LOADING", toggle);
 };
 
-export default { ACT_BOOKS, ACT_BOOK, ACT_LOADING };
+const ACT_PAGE = async ({ commit }, page = 1) => {
+  commit("MUT_PAGE", page);
+};
+
+const ACT_SCTOP = async ({ commit }, scTop = 0) => {
+  commit("MUT_SCTOP", scTop);
+};
+
+export default { ACT_BOOKS, ACT_BOOK, ACT_LOADING, ACT_PAGE, ACT_SCTOP };
