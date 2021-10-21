@@ -16,7 +16,7 @@
           </router-link>
         </li>
         <li>
-          <a href="//13.125.16.0">
+          <a href="//woojungyang.com">
             도서관리
             <small>(Express)</small>
           </a>
