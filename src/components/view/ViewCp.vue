@@ -84,17 +84,25 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
-.info-wrap {
-  @include flex;
-  border-bottom: 1px solid $light-color;
+.view-wrapper {
   .title {
-    color: $primary-color;
-    width: 20%;
+    margin-bottom: 1em;
+    border-bottom: 1px solid $success-color;
+    padding-bottom: 0.5em;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 10px;
+      background-color: $accent-color;
+      margin-right: 0.5em;
+    }
   }
-  .content {
-    color: $dark-color;
-    width: 80%;
+  .bt-wrap {
+    margin: 2em 0;
+    text-align: center;
   }
 }
 </style>
