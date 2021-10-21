@@ -7,4 +7,3 @@ export default (page, { listCnt, pagerCnt }) => {
     withCredentials: true,
   });
 };
-
