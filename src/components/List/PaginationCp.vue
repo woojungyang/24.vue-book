@@ -6,22 +6,21 @@
 </template>
 
 <script>
-import TableCp from "@/components/common/TableCp.vue";
-import PagerCp from "@/components/common/PagerCp.vue";
-import { mapGetters } from "vuex";
-
+import TableCp from '@/components/common/TableCp.vue';
+import PagerCp from '@/components/common/PagerCp.vue';
+import { mapGetters } from 'vuex';
 export default {
-  name: "PaginationCp",
+  name: 'PaginationCp',
   components: { TableCp, PagerCp },
   computed: {
-    ...mapGetters(["GET_BOOKS", "GET_PAGE"]),
+    ...mapGetters(['GET_BOOKS', 'GET_PAGE']),
   },
   created() {
-    this.$store.dispatch("ACT_LOADING", true);
-    this.$store.dispatch("ACT_BOOKS", { page: this.GET_PAGE });
+    this.$store.dispatch('ACT_LOADING', true);
+    this.$store.dispatch('ACT_BOOKS', { page: this.GET_PAGE });
   },
   updated() {
-    this.$store.dispatch("ACT_LOADING", false);
+    this.$store.dispatch('ACT_LOADING', false);
   },
 };
 </script>
