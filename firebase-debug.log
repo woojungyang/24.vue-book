@@ -1,0 +1,32 @@
+[debug] [2021-12-14T07:07:55.958Z] ----------------------------------------------------------------------
+[debug] [2021-12-14T07:07:55.961Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\82109\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2021-12-14T07:07:55.962Z] CLI Version:   9.23.1
+[debug] [2021-12-14T07:07:55.962Z] Platform:      win32
+[debug] [2021-12-14T07:07:55.962Z] Node Version:  v14.18.1
+[debug] [2021-12-14T07:07:55.963Z] Time:          Tue Dec 14 2021 16:07:55 GMT+0900 (대한민국 표준시)
+[debug] [2021-12-14T07:07:55.964Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-12-14T07:07:56.034Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-12-14T07:07:56.034Z] > authorizing via signed-in user (dnwjd9050@gmail.com)
+[debug] [2021-12-14T07:07:56.034Z] [iam] checking project sc21-app-vue-book-ywj for permissions ["firebase.projects.get"]
+[debug] [2021-12-14T07:07:56.037Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/sc21-app-vue-book-ywj:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-12-14T07:07:57.132Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 14 Dec 2021 07:07:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=832","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-14T07:07:57.134Z] > refreshing access token with scopes: []
+[debug] [2021-12-14T07:07:57.135Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-12-14T07:07:57.343Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Tue, 14 Dec 2021 07:07:57 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-14T07:07:57.361Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sc21-app-vue-book-ywj [none]
+[debug] [2021-12-14T07:07:57.835Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sc21-app-vue-book-ywj 200
+[debug] [2021-12-14T07:07:57.835Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sc21-app-vue-book-ywj {"projectId":"sc21-app-vue-book-ywj","projectNumber":"579724620737","displayName":"sc21-app-vue-book-ywj","name":"projects/sc21-app-vue-book-ywj","resources":{"hostingSite":"sc21-app-vue-book-ywj"},"state":"ACTIVE"}
+[info] 
+[info] === Serving from 'C:\실습\24.vue-book'...
+[info] 
+[debug] [2021-12-14T07:07:57.838Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sc21-app-vue-book-ywj/sites 
+[debug] [2021-12-14T07:07:59.181Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sc21-app-vue-book-ywj/sites 200
+[debug] [2021-12-14T07:07:59.181Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sc21-app-vue-book-ywj/sites {"sites":[{"name":"projects/579724620737/sites/sc21-app-vue-book-ywj","defaultUrl":"https://sc21-app-vue-book-ywj.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2021-12-14T07:07:59.182Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sc21-app-vue-book-ywj/webApps/-/config [none]
+[debug] [2021-12-14T07:08:00.094Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sc21-app-vue-book-ywj/webApps/-/config 200
+[debug] [2021-12-14T07:08:00.094Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sc21-app-vue-book-ywj/webApps/-/config {"projectId":"sc21-app-vue-book-ywj","storageBucket":"sc21-app-vue-book-ywj.appspot.com","apiKey":"AIzaSyD7qIHVwY0j0wKhRJR4hIfGNsfRRqDjN0c","authDomain":"sc21-app-vue-book-ywj.firebaseapp.com","messagingSenderId":"579724620737"}
+[info] i  hosting: Serving hosting files from: dist {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mdist\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
