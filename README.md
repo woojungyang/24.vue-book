@@ -1,24 +1,9 @@
-# 24.vue-book
+<h1>BookList(Vue.js, Scss)</h1>
 
-## Project setup
-```
-npm install
-```
+domain : https://sc21-app-vue-book-ywj.web.app/ <br>
+dev-tools : Vue.js, Scss, Jsp, Mysql
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+#### 주요기능
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- book.woojungyang.com에서 발급받은 apikey를 통해 book DB 사용.
+- pagination/ Infinite Scroll로 구성
